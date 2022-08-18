@@ -20,8 +20,8 @@ func (s *QueueScheduler) Submit(r engine.Request) {
 }
 
 func (s *QueueScheduler) Run() {
-	s.workerChan = make(chan chan engine.Request)
 	s.requestChan = make(chan engine.Request)
+	s.workerChan = make(chan chan engine.Request)
 	go func() {
 		var requestQ []engine.Request
 		var workerQ []chan engine.Request
